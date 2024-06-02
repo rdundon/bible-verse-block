@@ -65,10 +65,13 @@ function Edit(props) {
     label: "Content",
     value: attributes.text,
     name: "content",
+    className: "content",
     onChange: newtext => setAttributes({
       text: newtext
     })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
+    class: "chapter-verse-reference"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     label: "Book",
     value: attributes.book,
     name: "book",
@@ -79,6 +82,7 @@ function Edit(props) {
     label: "Chapter",
     value: attributes.chapter,
     name: "chapter",
+    className: "chapter",
     onChange: newtext => setAttributes({
       chapter: newtext
     })
@@ -86,6 +90,7 @@ function Edit(props) {
     label: "Verse",
     value: attributes.verse,
     name: "verse",
+    className: "verse",
     onChange: newtext => setAttributes({
       verse: newtext
     })
@@ -96,7 +101,7 @@ function Edit(props) {
     onChange: newtext => setAttributes({
       version: newtext
     })
-  }));
+  })));
 }
 
 /***/ }),

@@ -6,4 +6,23 @@
 
 .wp-block-create-block-bible-verse-block {
 	border: 1px dotted #f00;
+
+	.chapter-verse-reference {
+		flex-direction: row;
+		display: flex;
+		align-items: baseline;
+
+		& > * {
+			margin: .4em;
+		}
+
+		.content {
+			font-size: 1.2em;
+		    line-height: 1.4;
+		}
+
+		.chapter, .verse {
+			width: 8em;
+		}
+	}
 }

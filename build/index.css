@@ -9,5 +9,20 @@
 .wp-block-create-block-bible-verse-block {
   border: 1px dotted #f00;
 }
+.wp-block-create-block-bible-verse-block .chapter-verse-reference {
+  flex-direction: row;
+  display: flex;
+  align-items: baseline;
+}
+.wp-block-create-block-bible-verse-block .chapter-verse-reference > * {
+  margin: 0.4em;
+}
+.wp-block-create-block-bible-verse-block .chapter-verse-reference .content {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+.wp-block-create-block-bible-verse-block .chapter-verse-reference .chapter, .wp-block-create-block-bible-verse-block .chapter-verse-reference .verse {
+  width: 8em;
+}
 
 /*# sourceMappingURL=index.css.map*/

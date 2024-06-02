@@ -44,32 +44,37 @@ export default function Edit(props) {
 					label="Content"
 					value={attributes.text}
 					name="content"
+					className='content'
 					onChange={(newtext) => setAttributes({ text: newtext })}
 				/>
-				<TextControl
-					label="Book"
-					value={attributes.book}
-					name="book"
-					onChange={(newtext) => setAttributes({ book: newtext })}
-				/>
-				<__experimentalNumberControl
-					label="Chapter"
-					value={attributes.chapter}
-					name="chapter"
-					onChange={(newtext) => setAttributes({ chapter: newtext })}
-				/>
-				<TextControl
-					label="Verse"
-					value={attributes.verse}
-					name="verse"
-					onChange={(newtext) => setAttributes({ verse: newtext})}
-				/>
-				<TextControl
-					label="Version"
-					value={attributes.version}
-					name="version"
-					onChange={(newtext) => setAttributes({ version: newtext })}
-				/>
+				<section class="chapter-verse-reference">
+					<TextControl
+						label="Book"
+						value={attributes.book}
+						name="book"
+						onChange={(newtext) => setAttributes({ book: newtext })}
+					/>
+					<__experimentalNumberControl
+						label="Chapter"
+						value={attributes.chapter}
+						name="chapter"
+						className="chapter"
+						onChange={(newtext) => setAttributes({ chapter: newtext })}
+					/>
+					<TextControl
+						label="Verse"
+						value={attributes.verse}
+						name="verse"
+						className="verse"
+						onChange={(newtext) => setAttributes({ verse: newtext})}
+					/>
+					<TextControl
+						label="Version"
+						value={attributes.version}
+						name="version"
+						onChange={(newtext) => setAttributes({ version: newtext })}
+					/>
+				</section>
 		</div>
 	);
 }
