@@ -36,10 +36,9 @@ export default function Edit(props) {
 	return (
 		<div { ...useBlockProps() }>
 			{ __(
-				'Bible Verse Block – hello from editor!',
+				'Bible Verse Block',
 				'bible-verse-block'
 			) }
-			testing!
 				<TextareaControl 
 					label="Content"
 					value={attributes.text}
