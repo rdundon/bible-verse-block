@@ -65,7 +65,7 @@ export default function Edit(props) {
 					value={attributes.verse}
 					name="verse"
 					className="verse"
-					onChange={(val) => setAttributes({ verse: val !== '' ? Number(val) : undefined })}
+					onChange={(val) => setAttributes({ verse: val })}
 				/>
 					<TextControl
 						label="Version"

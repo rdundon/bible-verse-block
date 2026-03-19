@@ -17,15 +17,14 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save(props) {
 	const { attributes } = props;
-	const { book, chapter, verse, endVerse, version, text } = attributes;
+	const { book, chapter, verse, version, text } = attributes;
 	return (
 		<div { ...useBlockProps.save() }>
 			<blockquote>
 				{text}
 				<footer>
 					<cite>
-						{book} {chapter}:{verse}
-						{endVerse ? `-${endVerse}` : ''} ({version})
+						{book} {chapter}:{verse} ({version})
 					</cite>
 				</footer>
 			</blockquote>

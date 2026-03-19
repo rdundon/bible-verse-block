@@ -31,10 +31,7 @@
 			"default": ""
 		},
 		"verse": {
-			"type": "number"
-		},
-		"endVerse": {
-			"type": "number"
+			"type": "string"
 		},
 		"version": {
 			"type": "string",

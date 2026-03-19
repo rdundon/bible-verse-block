@@ -32,8 +32,45 @@ const deprecated = [
 			chapter: { type: 'number' },
 			text: { type: 'string', default: '' },
 			verse: { type: 'number' },
+			endVerse: { type: 'number' },
+			version: { type: 'string', default: 'WEB' },
+		},
+		migrate( attributes ) {
+			const { verse, endVerse, ...rest } = attributes;
+			const verseStr = endVerse ? `${ verse }-${ endVerse }` : String( verse ?? '' );
+			return { ...rest, verse: verseStr };
+		},
+		save( props ) {
+			const { attributes } = props;
+			const { book, chapter, verse, endVerse, version, text } = attributes;
+			return (
+				<div { ...useBlockProps.save() }>
+					<blockquote>
+						{text}
+						<footer>
+							<cite>
+								{book} {chapter}:{verse}
+								{endVerse ? `-${endVerse}` : ''} ({version})
+							</cite>
+						</footer>
+					</blockquote>
+				</div>
+			);
+		},
+	},
+	{
+		attributes: {
+			book: { type: 'string' },
+			chapter: { type: 'number' },
+			text: { type: 'string', default: '' },
+			verse: { type: 'number' },
 			endVerse: { type: 'number', default: null },
 			version: { type: 'string', default: 'WEB' },
+		},
+		migrate( attributes ) {
+			const { verse, endVerse, ...rest } = attributes;
+			const verseStr = endVerse ? `${ verse }-${ endVerse }` : String( verse ?? '' );
+			return { ...rest, verse: verseStr };
 		},
 		save( props ) {
 			const { attributes } = props;
