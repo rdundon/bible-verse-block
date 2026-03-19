@@ -23,7 +23,10 @@ export default function save(props) {
 			<blockquote>
 				{text}
 				<footer>
-					<cite>{book} {chapter}:{verse}{endVerse != '' ? endVerse : ''} ({attributes.version})</cite>
+					<cite>
+						{book} {chapter}:{verse}
+						{endVerse ? `-${endVerse}` : ''} ({version})
+					</cite>
 				</footer>
 			</blockquote>
 		</div>

@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 import { registerBlockType } from '@wordpress/blocks';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -22,34 +23,41 @@ import save from './save';
 import metadata from './block.json';
 
 /**
+ * Deprecated versions of the block for migration from old save() output.
+ */
+const deprecated = [
+	{
+		attributes: {
+			book: { type: 'string' },
+			chapter: { type: 'number' },
+			text: { type: 'string', default: '' },
+			verse: { type: 'number' },
+			endVerse: { type: 'number', default: null },
+			version: { type: 'string', default: 'WEB' },
+		},
+		save( props ) {
+			const { attributes } = props;
+			const { book, chapter, verse, endVerse, version, text } = attributes;
+			return (
+				<div { ...useBlockProps.save() }>
+					<blockquote>
+						{text}
+						<footer>
+							<cite>{book} {chapter}:{verse}{endVerse != '' ? endVerse : ''} ({attributes.version})</cite>
+						</footer>
+					</blockquote>
+				</div>
+			);
+		},
+	},
+];
+
+/**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
-	attributes: {
-		book: {
-			type: 'string'
-		},
-		chapter: {
-			type: 'number'
-		},
-		text: {
-			type: 'string',
-			default: '',
-		},
-		verse: {
-			type: 'number'
-		},
-		endVerse: {
-			type: 'number',
-			default: null,
-		},
-		version: {
-			type: 'string',
-			default: 'WEB'
-		}
-	},	
 	/**
 	 * @see ./edit.js
 	 */
@@ -59,4 +67,6 @@ registerBlockType( metadata.name, {
 	 * @see ./save.js
 	 */
 	save,
+
+	deprecated,
 } );

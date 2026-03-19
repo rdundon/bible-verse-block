@@ -18,5 +18,27 @@
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "book": {
+      "type": "string"
+    },
+    "chapter": {
+      "type": "number"
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    },
+    "verse": {
+      "type": "number"
+    },
+    "endVerse": {
+      "type": "number"
+    },
+    "version": {
+      "type": "string",
+      "default": "WEB"
+    }
+  }
 }

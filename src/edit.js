@@ -53,20 +53,20 @@ export default function Edit(props) {
 						name="book"
 						onChange={(newtext) => setAttributes({ book: newtext })}
 					/>
-					<__experimentalNumberControl
-						label="Chapter"
-						value={attributes.chapter}
-						name="chapter"
-						className="chapter"
-						onChange={(newtext) => setAttributes({ chapter: newtext })}
-					/>
-					<TextControl
-						label="Verse"
-						value={attributes.verse}
-						name="verse"
-						className="verse"
-						onChange={(newtext) => setAttributes({ verse: newtext})}
-					/>
+				<TextControl
+					label="Chapter"
+					value={attributes.chapter}
+					name="chapter"
+					className="chapter"
+					onChange={(val) => setAttributes({ chapter: val !== '' ? Number(val) : undefined })}
+				/>
+				<TextControl
+					label="Verse"
+					value={attributes.verse}
+					name="verse"
+					className="verse"
+					onChange={(val) => setAttributes({ verse: val !== '' ? Number(val) : undefined })}
+				/>
 					<TextControl
 						label="Version"
 						value={attributes.version}
